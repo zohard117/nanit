@@ -3,6 +3,7 @@ from config import DB_PARAMS
 import logging
 import psycopg2.extras
 
+#create data db
 def create_db():
     try:
         connection = psycopg2.connect(user= DB_PARAMS["user"],
@@ -32,7 +33,7 @@ def create_db():
     except (Exception, psycopg2.Error) as error:
         logging.error("Error while connecting to PostgreSQL" + error)
 
-
+#create tables
 def create_tables():
     try:
         connection = psycopg2.connect(user= DB_PARAMS["user"],
@@ -65,6 +66,7 @@ def create_tables():
         logging.error("Error while connecting to PostgreSQL" + error)
 
 
+# bulk load data to table
 def load_shipping_lines_table(all_shipment_lines):
     connection = psycopg2.connect(user=DB_PARAMS["user"],
                                   password=DB_PARAMS["password"],
@@ -89,7 +91,9 @@ def load_shipping_lines_table(all_shipment_lines):
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
+    logging.info("create db")
     create_db()
+    logging.info("create tables")
     create_tables()
 
 if __name__ == "__main__":

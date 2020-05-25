@@ -2,8 +2,9 @@ import json
 import config
 from datetime import datetime
 import os
-import psycopg2.extras
 
+
+# get_shipping_lines_data - iterate over json file, get shipment rows and prepare the data structure to load
 def get_shipping_lines_data():
     all_shipment_lines = []
     all_products = set()

@@ -22,7 +22,7 @@ def download_data():
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
-    # download_data()
+    download_data()
 
 if __name__ == "__main__":
     main()

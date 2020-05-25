@@ -4,7 +4,7 @@ import databaseUtils
 import prepareData
 import logging
 
-
+#configure logger
 def getLogger():
     logging.basicConfig(
         level=config.LOG_LEVEL,
@@ -16,6 +16,11 @@ def getLogger():
     )
 
 
+# run main etl process
+#   create databse objects
+#   download data
+#   prepare data to load
+#   load data
 def main():
     getLogger()
     logging.info("start ETL process")
